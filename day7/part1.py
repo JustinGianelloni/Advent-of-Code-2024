@@ -1,4 +1,5 @@
 import itertools
+from tqdm import tqdm
 from typing import TextIO
 from itertools import product
 
@@ -44,7 +45,7 @@ def parse_line(line: str) -> int:
 def parse_file(file: TextIO) -> int:
     lines: list[str] = file.readlines()
     answer: int = 0
-    for line in lines:
+    for line in tqdm(lines):
         answer += parse_line(line)
     return answer
 
